@@ -14,5 +14,6 @@ phases:
     commands:
       - echo "POST BUILD PHASE"
 artifacts:
+  type : yaml
   files:
     - appspec.yaml
