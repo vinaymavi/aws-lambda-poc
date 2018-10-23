@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "INSTALL PHASE"
+  pre_build:
+    commands:
+      - echo "PRE BUILD PHASE"
+  build:
+    commands:
+      - echo "BUILD PHASE"
+  post_build:
+    commands:
+      - echo "POST BUILD PHASE"
+artifacts:
+  files:
+    - appspec.yaml
