@@ -1,3 +1,3 @@
 exports.handler = async(event,context) => {
-    return "Hello World from build."
+    return "Hello World, waiting for code deploy server to build!"
 }
