@@ -1,3 +1,3 @@
 exports.handler = async(event,context) => {
-    return "Hello with alias and version - 6"
+    return "Hello World from build."
 }
