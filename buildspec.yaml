@@ -19,4 +19,4 @@ phases:
       - echo "POST BUILD PHASE END"
 artifacts:
   files:
-    - appspec.yaml
+    - appspec.yml
