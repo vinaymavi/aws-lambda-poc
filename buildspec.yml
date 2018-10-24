@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - aws --version
       - echo "INSTALL PHASE"
   pre_build:
     commands:
@@ -14,6 +15,5 @@ phases:
     commands:
       - echo "POST BUILD PHASE"
 artifacts:
-  type : yaml
   files:
     - appspec.yaml
