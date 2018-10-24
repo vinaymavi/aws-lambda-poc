@@ -15,7 +15,7 @@ phases:
     commands:
       - echo "POST BUILD PHASE START"
       - aws cloudformation package --template-file cloudformation.json --s3-bucket temp-aws-lambda-poc --output-template-file cfoutput.json --use-json --force-upload
-      - aws cloudformation deploy --template-file /Users/vinaymavi/github/aws-lambda-poc/cfoutput.json --stack-name aws-lambda-poc-cf-stack3
+      - aws cloudformation deploy --template-file ./cfoutput.json --stack-name aws-lambda-poc-cf-stack3
       - echo "POST BUILD PHASE END"
 artifacts:
   files:
