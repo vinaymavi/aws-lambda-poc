@@ -1,3 +1,3 @@
-exports.handler = async(event,context){
-    return "Hello1"
+exports.handler = async(event,context) => {
+    return "Hello2"
 }

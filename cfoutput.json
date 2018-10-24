@@ -1,0 +1,25 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09", 
+    "Description": "Template to upload latest commit to lambda service and create new version of it.", 
+    "Resources": {
+        "MyLambdaFunction": {
+            "Type": "AWS::Lambda::Function", 
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "temp-aws-lambda-poc", 
+                    "S3Key": "aec0d02f3a83c77fdc437ac4308ad765"
+                }, 
+                "FunctionName": "aws-lambda-poc-cf", 
+                "Environment": {
+                    "Variables": {
+                        "ENV": "PROD"
+                    }
+                }, 
+                "Handler": "index.handler", 
+                "Role": "arn:aws:iam::120666664882:role/service-role/boilerplate-microservice-nodejs-lambda", 
+                "Runtime": "nodejs8.10", 
+                "Description": "This is a poc function with code pipeline deployment."
+            }
+        }
+    }
+}
