@@ -9,4 +9,5 @@
 
 
 ## Commands 
-### package 
+* Package `aws cloudformation package --template-file cloudformation.json --s3-bucket temp-aws-lambda-poc --output-template-file cfoutput.json --use-json --force-upload`
+* Deploy `aws cloudformation deploy --template-file /Users/vinaymavi/github/aws-lambda-poc/cfoutput.json --stack-name aws-lambda-poc-cf-stack3`
