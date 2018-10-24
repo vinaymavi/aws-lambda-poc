@@ -2,12 +2,28 @@
     "AWSTemplateFormatVersion": "2010-09-09", 
     "Description": "Template to upload latest commit to lambda service and create new version of it.", 
     "Resources": {
+        "DevAlias": {
+            "Type": "AWS::Lambda::Alias", 
+            "Properties": {
+                "Name": "Dev", 
+                "FunctionVersion": "$LATEST", 
+                "Description": "This Dev alias used for development purpose only.", 
+                "FunctionName": "aws-lambda-poc-cf"
+            }
+        }, 
+        "FunVersion": {
+            "Type": "AWS::Lambda::Version", 
+            "Properties": {
+                "Description": "Dynamic Version Creation", 
+                "FunctionName": "aws-lambda-poc-cf"
+            }
+        }, 
         "MyLambdaFunction": {
             "Type": "AWS::Lambda::Function", 
             "Properties": {
                 "Code": {
                     "S3Bucket": "temp-aws-lambda-poc", 
-                    "S3Key": "aec0d02f3a83c77fdc437ac4308ad765"
+                    "S3Key": "9be508fbacfa6ee2c8679fdc866dcf2b"
                 }, 
                 "FunctionName": "aws-lambda-poc-cf", 
                 "Environment": {

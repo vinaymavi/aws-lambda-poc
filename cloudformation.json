@@ -17,6 +17,22 @@
         "Role": "arn:aws:iam::120666664882:role/service-role/boilerplate-microservice-nodejs-lambda",
         "Runtime": "nodejs8.10"
       }
+    },
+    "FunVersion": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "Description": "Dynamic Version Creation",
+        "FunctionName": "aws-lambda-poc-cf"
+      }
+    },
+    "DevAlias": {
+      "Type": "AWS::Lambda::Alias",
+      "Properties": {
+        "Description": "This Dev alias used for development purpose only.",
+        "FunctionName": "aws-lambda-poc-cf",
+        "FunctionVersion": "$LATEST",
+        "Name": "Dev"
+      }
     }
   }
 }
