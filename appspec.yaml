@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "aws-lambda-poc-cf"
+        Alias: "Dev"
+        CurrentVersion: "3"
+        TargetVersion: "3"
