@@ -14,8 +14,22 @@
           }
         },
         "Handler": "index.handler",
-        "Role": "arn:aws:iam::120666664882:role/service-role/boilerplate-microservice-nodejs-lambda",
+        "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"]},
         "Runtime": "nodejs8.10"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Effect": "Allow",
+            "Principal": { "Service": ["lambda.amazonaws.com"] },
+            "Action": ["sts:AssumeRole"]
+          }]
+        },
+        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]
       }
     },
     "FunVersion": {
@@ -45,7 +59,7 @@
       }
     },
     "RestApiMethod": {
-      "DependsOn": ["RestApi"],
+      "DependsOn": ["RestApi","LambdaPermission"],
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -103,7 +117,6 @@
       }
     },
     "LambdaPermission": {
-      "DependsOn": ["RestApiDeployment", "RestApiMethod"],
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "Action": "lambda:invokeFunction",
