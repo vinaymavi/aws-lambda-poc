@@ -51,7 +51,7 @@
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
-          "IntegrationHttpMethod": "GET",
+          "IntegrationHttpMethod": "POST",
           "Type": "AWS",
           "Uri": {
             "Fn::Join": [
