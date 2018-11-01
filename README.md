@@ -6,6 +6,8 @@
 * CLI reference - https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html
 * Outputs - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
 * Parameters - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html 
+* API Gateway Reference ID - https://docs.aws.amazon.com/apigateway/api-reference/resource/
+* API Gateway mapping reference - https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
 
 ## Commands 

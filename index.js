@@ -1,4 +1,5 @@
 exports.handler = (event,context,callback) => {
+    console.log("event=",JSON.stringify(event));
     var responseBody = {
         message: 'Hello World, waiting for code deploy server to build!!! 26/Oct Morning...'
     }
