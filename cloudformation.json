@@ -5,7 +5,7 @@
     "MyLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
-        "FunctionName": "aws-lambda-poc-cf",
+        "FunctionName": "cf-aws-lambda-poc",
         "Description": "This is a poc function with code pipeline deployment.",
         "Code": "./",
         "Environment": {
@@ -41,7 +41,7 @@
       "Type": "AWS::Lambda::Version",
       "Properties": {
         "Description": "Dynamic Version Creation",
-        "FunctionName": "aws-lambda-poc-cf"
+        "FunctionName": { "Fn::GetAtt": ["MyLambdaFunction", "Arn"] }
       }
     },
     "DevAlias": {
@@ -49,7 +49,7 @@
       "Type": "AWS::Lambda::Alias",
       "Properties": {
         "Description": "This Dev alias used for development purpose only.",
-        "FunctionName": "aws-lambda-poc-cf",
+        "FunctionName": { "Fn::GetAtt": ["MyLambdaFunction", "Arn"] },
         "FunctionVersion": "$LATEST",
         "Name": "Dev"
       }
