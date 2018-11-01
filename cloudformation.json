@@ -58,15 +58,24 @@
         "FailOnWarnings": true
       }
     },
+    "RestApiResource": {
+      "DependsOn": ["RestApi"],
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "RestApiId": {"Ref": "RestApi"},
+        "ParentId": {"Fn::GetAtt": ["RestApi", "RootResourceId"]},
+        "PathPart": "{proxy+}"
+      }
+    },
     "RestApiMethod": {
       "DependsOn": ["RestApi","LambdaPermission"],
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
-        "HttpMethod": "GET",
+        "HttpMethod": "ANY",
         "Integration": {
           "IntegrationHttpMethod": "POST",
-          "Type": "AWS",
+          "Type": "AWS_PROXY",
           "Uri": {
             "Fn::Join": [
               "",
@@ -78,17 +87,9 @@
                 "/invocations"
               ]
             ]
-          },
-          "IntegrationResponses": [
-            {
-              "StatusCode": 200,
-              "ResponseTemplates": {
-                "application/json": "$input.json('$.body')"
-              }
-            }
-          ]
+          }
         },
-        "ResourceId": { "Fn::GetAtt": ["RestApi", "RootResourceId"] },
+        "ResourceId": { "Ref":"RestApiResource" },
         "RestApiId": { "Ref": "RestApi" },
         "MethodResponses": [
           {
